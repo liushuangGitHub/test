@@ -19,6 +19,14 @@
     git branch 分支名     创建一个分支
     git checkout 分支名   切换分支
 
+    在新分支提交时候，出现问题无法提交 git提示使用命令：git push --set-upstream origin dev
+    只有使用这个命令才能将新分支和新分支上的代码提交到远程仓库中
+    这个命令提示只有在本地新切换分支后第一次提交才会出现，在之后我们直接提交 git push 即可，无需再写后边的命令
+
+    当在dev分支上修改内容之后，想要把dev分支上的代码合并到master上：
+    1. 先切换到master分支上，
+    2. 执行git merge dev     这个命令是将dev分支上的代码合并到master上
+
 
 
 
