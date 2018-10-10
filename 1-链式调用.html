@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    function Man(name) {
+        this.ary = [];
+        let that = this;
+        function say(){
+            console.log(`HI , this is ${name}`);
+            that.next();
+        }
+        this.ary.push(say);
+        // this.next();
+        // 直接执行 会导致 后边的两个函数没有push到ary中；需要我们用异步解决这个问题；异步有个特点就是同步代码执行完成之前 异步代码不会执行，所以改为采用下边的异步执行
+        setTimeout(()=>{
+            this.next();
+        },0)
+    }
+    /* 执行函数 */
+    Man.prototype.next = function(){
+        let fn = this.ary.shift();
+        fn && fn();
+    };
+    Man.prototype.sleep = function (n) {
+        let that = this;
+        function fn(){
+            setTimeout(()=>{
+                console.log(`Wake Up after ${n} s`);
+                that.next();
+            },n*1000);
+        }
+        this.ary.push(fn);
+        return this;
+    };
+    Man.prototype.eat = function (str) {
+        let that = this;
+        function fn(){
+            console.log(`Eat ${str} ~`);
+            that.next();
+        }
+        this.ary.push(fn);
+        return this;
+    };
+    Man.prototype.sleepFirst = function (n) {
+        let that = this;
+        function fn() {
+            setTimeout(() => {
+                console.log(`sleepFirst ${n} s`);
+                that.next();
+            }, n * 1000);
+        }
+        this.ary.unshift(fn);
+        return this;
+    };
+
+    function LazyMan(man) {
+        return new Man(man);
+    }
+
+    LazyMan("ls").sleep(2).eat("dinner").eat("dinner");
+    LazyMan("ls").sleepFirst(2).eat("dinner").sleep(3).eat("dinner");
+
+</script>

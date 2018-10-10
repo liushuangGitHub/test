@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let obj = {
+        a: {
+            name: "我是a",
+            age: 5,
+            b: {
+                name: "我是a中的b",
+                age: 2,
+                c: {
+                    name: "我是a中的c",
+                    sex: 0,
+                    b: {
+                        name: "我是a中的d"
+                    }
+                }
+            }
+        },
+        b: {
+            c: {
+                d: {
+                    name: "我是b中的d",
+                    age: 10
+                }
+            }
+        },
+        name: {
+            name: "我是name"
+        }
+    };
+
+    //
+    let obj1 = JSON.parse(JSON.stringify(obj));
+
+    let ary = [];
+    function getName(obj) {
+        if(typeof obj !== 'object')return;
+        for (let k in obj) {
+            if(k === 'name'){
+                ary.push(obj[k]);
+            }else {
+                getName(obj[k]);
+            }
+        }
+    }
+    getName(obj);
+    console.log(ary);
+</script>
