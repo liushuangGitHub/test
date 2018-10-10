@@ -35,7 +35,10 @@
     git pull 桥梁名 分支名   将远程仓库代码拉取到本地仓库 eg：git pull origin master
     git push 桥梁名 分支名   将历史区的代码提交到远程仓库 eg：git push origin master
 
-    git git clone [远程地址] 
+    git clone [远程地址] 可以省略 以下三步
+        1. git init
+        2. git remote add 桥梁名 远程仓库地址
+        3. git push 桥梁名 分支名
 
     git diff  查看工作区和缓存区的区别
     git diff --cache  查看缓存区和工作区的区别
@@ -52,6 +55,8 @@
     设置本地某些文件不向上提交（让Git忽略某些文件进行提交）
     在根目录下创建一个 .gitignore 的文件
     将要忽略的文件或者文件夹写在文件中
+
+    git不支持上传空文件夹
 
 
     */
