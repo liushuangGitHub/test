@@ -1,3 +1,7 @@
 this is txt
 br
 second row
+
+
+master 冲突内容
+
