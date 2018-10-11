@@ -15,14 +15,13 @@
 
     git 分布式代码管理工具
     svn 集中式代码管理工具
-    gitLab
-    gitHub
+    gitLab 公司内部使用项目的托管平台
+    gitHub 开源及私有软件项目的托管平台
 
     git config --global user.name "用户名"  配置全局的用户名
     git config --global user.email "邮箱"   配置全局的邮箱
     git config --list 查看当前用户的信息
 
-    命令
     git init   把文件夹转成 git 仓库
 
     git remote -v  查看已经与那些跟远程库建立了链接
@@ -52,11 +51,9 @@
     git log  查看历史提交过的历史版本
     git reflog 查看所有历史版本，只有前7位
 
-    设置本地某些文件不向上提交（让Git忽略某些文件进行提交）
-    在根目录下创建一个 .gitignore 的文件
-    将要忽略的文件或者文件夹写在文件中
-
-    git不支持上传空文件夹
+    **注意：**
+    1. 设置本地某些文件不向上提交（让git忽略某些文件进行提交），在根目录下创建一个 .gitignore 的文件，将要忽略的文件或者文件夹名称写在文件中
+    2. git 不支持上传空文件夹
 
     git commit -a -m '备注'    git add . 和 git commit -m '备注' 的简写
     **注意：** 使用这个简写命令的前提是在当前仓库中执行过 git add . 和 git commit -m '备注' 这两个命令
