@@ -2,9 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>8-node中的模块</title>
+    <script src="test2/--week8/es6导入导出/a.js" type="module" ></script>
+    <script src="test2/--week8/es6导入导出/b.js" type="module" ></script>
 </head>
 <body>
-$END$
+
 </body>
 </html>
+<script>
+    /*
+    node 中的模块分为三类：内置模块、第三方模块、自定义模块
+    内置模块:自带的内容
+    第三方模块：vue、react...
+    自定义模块：一个js文件就是一个自定义模块
+
+
+
+    node下的一些属性
+
+    module     当前模块的一些信息
+    __dirname  当前文件夹的绝对路径
+    __filename 当前文件的绝对路径
+    exports  ===  module.exports    指向同一个地址，所以是 true
+    require    本身是个函数，作用是获取对应的模块
+    window     node中window不是全局属性所以是undefined
+    global     global是node的全局属性
+
+    node执行时，一个模块就是一个私有作用域
+    require、module... 全是属于这个模块的私有变量，不属于global
+
+    let qqq = require('./a.js'); require 中参数是另一个模块的路径
+    console.log(qqq);  这个qqq是个空对象，原因是a.js中没有导出的操作
+    require 可以让引用的文件执行，但不能直接获取文件中的变量，因为每一个文件对于node来说都会形成一个私有作用域
+
+
+    自定义模块 导入导出
+    导入： let 变量 = require(自定义模块相对路径)
+    module.exports === exports   ----->{}
+    导出： module.exports.name = 'zf'
+           module.exports = {name:'zf'}
+           以上两种结果是一样儿的
+           export = {name:'zf'}  这种写法是不起作用的
+           module.exports还支持用值类型覆盖module.exports = 123;
+
+    一个模块中有 require module __dirname __filename exports 这些只有在node中执行时才是被定义过的变量，在浏览器中执行时没有这些变量的
+
+    若想用es6的模块导入和导出 需要我们加上 type="module"
+    */
+
+</script>

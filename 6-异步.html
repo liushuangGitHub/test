@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
 </html>
+<script>
+    setTimeout(()=>{
+        console.log(2);
+    },500);
+    setTimeout(()=>{
+        console.log(1);
+    },300);
+    for (let i = 0; i < 999999999; i++) {
+        // 这个循环会超过500毫秒
+    }
+    console.log(3);
+
+    /*
+    输出：
+
+    3
+    1
+    2
+
+    */
+</script>

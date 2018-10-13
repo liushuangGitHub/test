@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
 </html>
+<script>
+    /*
+模块的导入和导出  目前一共有两种方式
+第一种  是 node 的导入导出
+node 导入  let 变量 = require(要导入模块的路径)
+node 导出  module.exports 和 exports 这两种方式导出；第一种方式 支持地址覆盖 也 支持 用值类型覆盖； 第二种方式只能老实的用 打点方式；
+node 方式的导入和导出 只能在node环境中执行；不能再浏览器环境下执行
+
+
+第二种  是 es6的模块导入和导出
+引入入口文件（a.js） 需要在script标签上加上 type="module" 这个属性
+es6 导入 有三种方式
+1、import {变量名} from './b.js'; 这个变量名 必须 跟导出的属性名保持一致
+这种导入方式需要的 导出方式是  export {obj2:obj}
+
+2、import 自定义变量名 from './b.js';
+这种导入方式需要的 导出方式是  export default obj(变量名)
+
+3、import * as 自定义变量名 from './b.js';
+这种导入方式 是把 b 中的所有的导出 都放到自定义变量名的对象中；
+
+4、import 自定义变量名,{obj,str} from './b.js';
+这种导入方式需要的导出方式是  《export default 变量》+《export {obj,str,num}》
+以上是es6 的导入和导出  需要在浏览器环境才能运行； 不能在 node 环境下运行
+
+
+
+node 的 module.exports 导出 可以写多个吗？ 可以 ，只不过只有最下边的起作用
+es6 的 export  导出 可以写多个吗？  可以 ，并且都起作用；
+
+     */
+
+</script>
